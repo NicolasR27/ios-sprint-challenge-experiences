@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PZ8-Bu-AJo">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Experience Map View Controller-->
+        <scene sceneID="byL-cU-OdA">
+            <objects>
+                <viewController id="PZ8-Bu-AJo" customClass="ExperienceMapViewController" customModule="Experiences" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mra-X5-lNu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T0S-Y2-zPT">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCs-S1-sEj">
+                                <rect key="frame" x="137.5" y="772" width="139" height="46"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="139" id="A7e-y6-XEv"/>
+                                    <constraint firstAttribute="height" constant="46" id="wZt-P7-N75"/>
+                                </constraints>
+                                <state key="normal" title="Add Experience">
+                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="UXk-ek-UHZ" kind="presentation" identifier="AddNewExperience" modalPresentationStyle="fullScreen" id="ziX-yh-d9L"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0Vm-8Y-b5T" firstAttribute="bottom" secondItem="LCs-S1-sEj" secondAttribute="bottom" constant="44" id="2wl-sy-I15"/>
+                            <constraint firstItem="T0S-Y2-zPT" firstAttribute="bottom" secondItem="0Vm-8Y-b5T" secondAttribute="bottom" id="PYw-iE-NS3"/>
+                            <constraint firstItem="T0S-Y2-zPT" firstAttribute="trailing" secondItem="0Vm-8Y-b5T" secondAttribute="trailing" id="Shr-sK-XZu"/>
+                            <constraint firstItem="T0S-Y2-zPT" firstAttribute="leading" secondItem="0Vm-8Y-b5T" secondAttribute="leading" id="c4i-k5-Sh0"/>
+                            <constraint firstItem="T0S-Y2-zPT" firstAttribute="top" secondItem="0Vm-8Y-b5T" secondAttribute="top" id="mIB-yl-7MT"/>
+                            <constraint firstItem="LCs-S1-sEj" firstAttribute="centerX" secondItem="Mra-X5-lNu" secondAttribute="centerX" id="wgp-Nf-sOm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Vm-8Y-b5T"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="T0S-Y2-zPT" id="gWP-S2-rl6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6mC-Jj-HRG" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+        </scene>
+        <!--Add Experience-->
+        <scene sceneID="SHo-qq-U05">
+            <objects>
+                <viewController id="7Ba-FJ-PIS" customClass="ImageAudioViewController" customModule="Experiences" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MkZ-VX-HR2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TLr-Ol-WOc">
+                                <rect key="frame" x="20" y="161" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="PTS-RJ-xa4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="3py-OV-Uhd">
+                                <rect key="frame" x="20" y="203" width="374" height="382"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWB-xV-Wy0">
+                                <rect key="frame" x="131" y="454" width="151" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Wzh-Ab-eby"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Upload Image">
+                                    <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadImageButtonTapped:" destination="7Ba-FJ-PIS" eventType="touchUpInside" id="ksv-1F-Fp2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqd-NU-gBT">
+                                <rect key="frame" x="88.5" y="593" width="237" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="237" id="Db6-VF-alL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Record">
+                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="selected" image="microphone"/>
+                                <connections>
+                                    <action selector="audioRecorderButtonTapped:" destination="7Ba-FJ-PIS" eventType="touchUpInside" id="H5Q-im-pVj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Vqd-NU-gBT" firstAttribute="top" secondItem="3py-OV-Uhd" secondAttribute="bottom" constant="8" symbolic="YES" id="8Bp-Eh-yV2"/>
+                            <constraint firstItem="JAz-5a-kub" firstAttribute="bottom" secondItem="Vqd-NU-gBT" secondAttribute="bottom" constant="191" id="9GI-Sl-KNu"/>
+                            <constraint firstItem="TLr-Ol-WOc" firstAttribute="trailing" secondItem="MkZ-VX-HR2" secondAttribute="trailingMargin" id="Chi-Yu-jFv"/>
+                            <constraint firstItem="TLr-Ol-WOc" firstAttribute="leading" secondItem="MkZ-VX-HR2" secondAttribute="leadingMargin" id="CjS-r9-CtA"/>
+                            <constraint firstItem="JAz-5a-kub" firstAttribute="bottom" secondItem="3py-OV-Uhd" secondAttribute="bottom" constant="277" id="Kn4-as-JLS"/>
+                            <constraint firstItem="Vqd-NU-gBT" firstAttribute="centerX" secondItem="3py-OV-Uhd" secondAttribute="centerX" id="ccy-Yr-u1B"/>
+                            <constraint firstItem="3py-OV-Uhd" firstAttribute="top" secondItem="TLr-Ol-WOc" secondAttribute="bottom" constant="8" symbolic="YES" id="d1d-th-kXy"/>
+                            <constraint firstItem="uWB-xV-Wy0" firstAttribute="leading" secondItem="JAz-5a-kub" secondAttribute="leading" constant="131" id="mP1-Zj-ycp"/>
+                            <constraint firstItem="TLr-Ol-WOc" firstAttribute="centerX" secondItem="uWB-xV-Wy0" secondAttribute="centerX" id="pys-df-9bM"/>
+                            <constraint firstAttribute="bottom" secondItem="uWB-xV-Wy0" secondAttribute="bottom" constant="397" id="qre-iZ-1Qm"/>
+                            <constraint firstItem="TLr-Ol-WOc" firstAttribute="top" secondItem="JAz-5a-kub" secondAttribute="top" constant="21" id="wZi-lJ-Urg"/>
+                            <constraint firstItem="TLr-Ol-WOc" firstAttribute="leading" secondItem="3py-OV-Uhd" secondAttribute="leading" id="yq8-EZ-ohl"/>
+                            <constraint firstItem="TLr-Ol-WOc" firstAttribute="trailing" secondItem="3py-OV-Uhd" secondAttribute="trailing" id="zY7-r7-Gar"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JAz-5a-kub"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Experience" id="y2g-qJ-gJx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="avW-v2-pwz">
+                            <color key="tintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="audioRecorderButton" destination="Vqd-NU-gBT" id="3LM-BJ-MIr"/>
+                        <outlet property="experienceTitleTextField" destination="TLr-Ol-WOc" id="qb6-zF-hnc"/>
+                        <outlet property="imageUploadButton" destination="uWB-xV-Wy0" id="zsr-zw-riQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lpB-Ue-vKT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1897.1014492753625" y="130.58035714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FAy-ps-rit">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UXk-ek-UHZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="jbz-GZ-2FX"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="PbF-xV-7g0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7Ba-FJ-PIS" kind="relationship" relationship="rootViewController" id="PfM-PP-xkz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NsB-xo-zm0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="986.95652173913049" y="130.58035714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="microphone" width="128" height="128"/>
+        <image name="placeholder" width="128" height="128"/>
+    </resources>
+</document>
