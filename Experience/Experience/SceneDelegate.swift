@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Experiences
+//  Experience
 //
-//  Created by Nicolas Rios on 5/16/20.
+//  Created by Nicolas Rios on 5/21/20.
 //  Copyright © 2020 Nicolas Rios. All rights reserved.
 //
 

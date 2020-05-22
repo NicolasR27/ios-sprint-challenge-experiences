@@ -60,9 +60,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs access to your photo library to make an entry.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>$(PRODUCT_NAME) needs access to your location to add your experiences.</string>
+	<string>$(PRODUCT_NAME) needs to access your location to see where you&apos;re at.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>$(PRODUCT_NAME) needs access to your microphone to record your experiences.</string>
+	<string>$(PRODUCT_NAME) needs access to your microphne to record audio. </string>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs your camera to be able to record.</string>
 </dict>
 </plist>
