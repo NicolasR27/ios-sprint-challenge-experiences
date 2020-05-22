@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PZ8-Bu-AJo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PZ8-Bu-AJo">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -127,6 +127,7 @@
                         <outlet property="audioRecorderButton" destination="Vqd-NU-gBT" id="3LM-BJ-MIr"/>
                         <outlet property="experienceTitleTextField" destination="TLr-Ol-WOc" id="qb6-zF-hnc"/>
                         <outlet property="imageUploadButton" destination="uWB-xV-Wy0" id="zsr-zw-riQ"/>
+                        <outlet property="imageView" destination="3py-OV-Uhd" id="8Hb-Qx-Qda"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpB-Ue-vKT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
