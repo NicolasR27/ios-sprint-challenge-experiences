@@ -121,11 +121,11 @@ class RecordersViewController: UIViewController {
     }
     
     
-  
-      //MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    //MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "RecordVideoSegue" {
             guard let videoVC = segue.destination as? VideoRecordingViewController else { return }
             guard let recordingURL = recordingURL else { return }
@@ -136,7 +136,7 @@ class RecordersViewController: UIViewController {
             videoVC.userLocation = userLocation
             videoVC.mapViewController = mapViewController
         }
-     }
-  
+    }
+    
     
 }

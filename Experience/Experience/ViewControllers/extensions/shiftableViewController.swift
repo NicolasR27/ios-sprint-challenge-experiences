@@ -5,6 +5,8 @@
 //  Created by Nicolas Rios on 5/21/20.
 //  Copyright © 2020 Nicolas Rios. All rights reserved.
 //
+
+
 import UIKit
 class ShiftableViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIGestureRecognizerDelegate {
     var currentYShiftForKeyboard: CGFloat = 0

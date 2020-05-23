@@ -26,10 +26,10 @@ class MapViewController: UIViewController {
     
     
     @IBOutlet var mapView: MKMapView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -42,20 +42,6 @@ class MapViewController: UIViewController {
         return currentLocation
     }
     
-//    private func requestCameraPermission() {
-//        switch AVCaptureDevice.authorizationStatus(for: .video) {
-//        case .notDetermined:
-//            requestCameraPermission()
-//        case .restricted:
-//            preconditionFailure("Video is disabled, please review device restriction.")
-//        case .denied:
-//            preconditionFailure("You're not able to use app without giving permission via Settings > Privacy > Video.")
-//        case .authorized:
-//            break
-//        @unknown default:
-//            preconditionFailure("A new status code that was added that we need to handle.")
-//        }
-//    }
     
     private func requestVideoPermissions() {
         AVCaptureDevice.requestAccess(for: .video) { (isGranted) in
@@ -71,21 +57,21 @@ class MapViewController: UIViewController {
         mapView.addAnnotation(myExperience)
     }
     
-
- 
+    
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       if segue.identifier == "NewExperienceSegue" {
-               guard let newExperienceVC = segue.destination as? NewExperienceViewController else { return }
-        userLocation = currentUserLocation()
-        newExperienceVC.userLocation = userLocation
-        newExperienceVC.mapVC = self
-               
-           }
-       }
+        if segue.identifier == "NewExperienceSegue" {
+            guard let newExperienceVC = segue.destination as? NewExperienceViewController else { return }
+            userLocation = currentUserLocation()
+            newExperienceVC.userLocation = userLocation
+            newExperienceVC.mapVC = self
+            
+        }
     }
+}
 
 
 extension Experience: MKAnnotation {
