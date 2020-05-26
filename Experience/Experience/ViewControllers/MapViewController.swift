@@ -12,7 +12,7 @@ import AVFoundation
 import CoreLocation
 
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, ExperienceSavedDelegate {
     
     let locationManager = CLLocationManager()
     var userLocation: CLLocationCoordinate2D?
@@ -36,6 +36,11 @@ class MapViewController: UIViewController {
         //requestCameraPermission()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateViews()
+    }
+    
     
     func currentUserLocation() -> CLLocationCoordinate2D {
         guard let currentLocation = locationManager.location?.coordinate else { return CLLocationCoordinate2D() }
@@ -53,10 +58,34 @@ class MapViewController: UIViewController {
     
     
     func updateViews() {
-        guard let myExperience = experience else { return }
-        mapView.addAnnotation(myExperience)
+        
+        
+        guard let url = fileURL else { return }
+              
+              do {
+                  let decoder = PropertyListDecoder()
+                  let data = try Data(contentsOf: url)
+                  print(data)
+                  let experience = try decoder.decode(Experience.self, from: data)
+                  
+                  let coordinate = CLLocationCoordinate2D(latitude: experience.latitude, longitude: experience.longitude)
+                  let annotation = MKPointAnnotation()
+                  annotation.coordinate = coordinate
+              
+                  mapView.addAnnotation(annotation)
+                  
+              } catch {
+                  print("Error decoding data: \(error)")
+              }
     }
     
+    
+    
+    func experienceSaved(url: URL?) {
+        // Load from persistence
+      
+        
+    }
     
     
     // MARK: - Navigation
@@ -74,15 +103,7 @@ class MapViewController: UIViewController {
 }
 
 
-extension Experience: MKAnnotation {
-    var coordinate: CLLocationCoordinate2D {
-        geotag
-    }
-    
-    var title: String? {
-        experienceTitle
-    }
-}
+
 
 extension MapViewController: CLLocationManagerDelegate {
     

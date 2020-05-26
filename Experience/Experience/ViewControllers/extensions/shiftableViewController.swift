@@ -8,7 +8,10 @@
 
 
 import UIKit
+
+
 class ShiftableViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIGestureRecognizerDelegate {
+   
     var currentYShiftForKeyboard: CGFloat = 0
     var textFieldBeingEdited: UITextField?
     var textViewBeingEdited: UITextView?

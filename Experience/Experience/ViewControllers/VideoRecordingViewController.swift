@@ -17,9 +17,9 @@ protocol RecordedVideoDelegate: AnyObject {
 class VideoRecordingViewController: UIViewController {
     
     var userLocation: CLLocationCoordinate2D?
-    var picture: Experience.Picture?
+    var picture: Data?
     var experienceTitle: String?
-    var recordingURL: Experience.Audio?
+    var recordingURL: String?
     
     lazy  private var captureSession = AVCaptureSession()
     lazy private var fileOutput = AVCaptureMovieFileOutput()
@@ -73,12 +73,12 @@ class VideoRecordingViewController: UIViewController {
         guard let audio = recordingURL else { return }
         guard let mapViewController = mapViewController else { return }
         
-        let video = Experience.Video(videoPost: videoURL)
+
         mapViewController.experience = Experience(experienceTitle: experienceTitle,
                                                   geotag: userLocation,
-                                                  picture: picture,
-                                                  video: video,
-                                                  audio: audio)
+                                                  pictureData: picture,
+                                                  videoUrl: videoURL.absoluteString,
+                                                  audioUrl: audio)
         
         navigationController?.popToRootViewController(animated: true)
     }

@@ -86,9 +86,9 @@
 		3E4757402477A16300DEA474 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3E4757452477A23300DEA474 /* UIViewController+Alert.swift */,
 				3E4757412477A1E400DEA474 /* MapViewController.swift */,
 				3E4757432477A21400DEA474 /* NewExperienceViewController.swift */,
-				3E4757452477A23300DEA474 /* UIViewController+Alert.swift */,
 				3E4757472477A2C000DEA474 /* RecorderViewController.swift */,
 				3E4757492477A35900DEA474 /* VideoRecordingViewController.swift */,
 				3E47574B2477A37200DEA474 /* extensions */,

@@ -7,8 +7,6 @@
 //
 
 import UIKit
-
-import UIKit
 import Photos
 import CoreImage
 import CoreImage.CIFilterBuiltins
@@ -19,6 +17,7 @@ class NewExperienceViewController: ShiftableViewController {
     //Properties:
     var mapVC: MapViewController?
     var userLocation: CLLocationCoordinate2D?
+    
     private let context = CIContext()
     private let exposureAdjustFilter = CIFilter.exposureAdjust()
     private var selectedImage: UIImage? {
@@ -133,12 +132,11 @@ class NewExperienceViewController: ShiftableViewController {
         if segue.identifier == "GoToRecordersSegue" {
             guard let recordersVC = segue.destination as? RecordersViewController else { return }
             
-            guard let image = photoImageView.image else { return }
-            let picture = Experience.Picture(imagePost: image)
+            guard let title = titleTextField.text, let image = photoImageView.image, let imageData = image.jpegData(compressionQuality: 1.0), let userLocation = self.userLocation else { return }
             
-            recordersVC.experienceTitle = titleTextField.text
-            recordersVC.picture = picture
-            recordersVC.userLocation = userLocation
+           let experience = Experience(experienceTitle: title, geotag: userLocation, pictureData: imageData, videoUrl: nil, audioUrl: nil)
+            
+            recordersVC.experience = experience
             recordersVC.mapViewController = mapVC
         }
     }

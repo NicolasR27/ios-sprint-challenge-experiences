@@ -10,14 +10,31 @@ import UIKit
 import AVFoundation
 import MapKit
 
+
+// Persistence file url
+var fileURL: URL? {
+    let manager = FileManager.default
+    guard let documentDir = manager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+    let fileURL = documentDir.appendingPathComponent("list.plist")
+    return fileURL
+}
+
+
+protocol ExperienceSavedDelegate: NSObject {
+    func experienceSaved(url: URL?)
+}
+
+
+
 class RecordersViewController: UIViewController {
     
     var mapViewController: MapViewController?
     var userLocation: CLLocationCoordinate2D?
-    var picture: Experience.Picture?
+    var pictureData: Data?
     var audioRecorder: AVAudioRecorder?
-    var experienceTitle: String?
+    var experience: Experience?
     var recordingURL: URL?
+    weak var delegate: ExperienceSavedDelegate?
     
     @IBOutlet weak var recordAudioOutlet: UIButton!
     @IBOutlet weak var recordVideoOutlet: UIButton!
@@ -25,11 +42,12 @@ class RecordersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         recordAudioOutlet.layer.cornerRadius = 20
         recordAudioOutlet.layer.borderColor = UIColor.black.cgColor
         recordAudioOutlet.layer.borderWidth = 1
         recordVideoOutlet.isEnabled = false
+        recordVideoOutlet.alpha = 0.5
+        
     }
     
     @IBAction func startStopRecording(_ sender: Any) {
@@ -112,7 +130,27 @@ class RecordersViewController: UIViewController {
     func stopRecording() {
         audioRecorder?.stop()
         recordVideoOutlet.isEnabled = true
+        
+        experience?.audioUrl = self.recordingURL?.absoluteString
+        saveToPersistence()
+        delegate?.experienceSaved(url: fileURL)
+
     }
+
+    
+    // Save to persistence
+    func saveToPersistence() {
+        guard let url = fileURL else {  return }
+        
+        do {
+            let encoder = PropertyListEncoder()
+            let data = try encoder.encode(experience)
+            try data.write(to: url)
+        } catch {
+            print("Error encoding data: \(error)")
+        }
+    }
+    
     
     func prepareAudioSession() throws {
         let session = AVAudioSession.sharedInstance()
@@ -129,14 +167,11 @@ class RecordersViewController: UIViewController {
         if segue.identifier == "RecordVideoSegue" {
             guard let videoVC = segue.destination as? VideoRecordingViewController else { return }
             guard let recordingURL = recordingURL else { return }
-            let audioRecording = Experience.Audio(audioPost: recordingURL)
-            videoVC.picture = picture
-            videoVC.experienceTitle = experienceTitle
-            videoVC.recordingURL = audioRecording
+            videoVC.picture = self.pictureData
+            videoVC.experienceTitle = title
+            videoVC.recordingURL = recordingURL.absoluteString
             videoVC.userLocation = userLocation
             videoVC.mapViewController = mapViewController
         }
     }
-    
-    
 }
